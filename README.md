@@ -3,3 +3,5 @@
 # 基数排序GPU的两大核心要点：  
 1.GPU实现前缀和；  
 2.计算基组偏移量实现索引分配。
+# webGPU计算的基础知识
+1.工作组（工作组id：workgroup_id）：一个工作组由workgroup_size（可指定）个线程（工作项）进行的。同一工作组的所有工作项可以访问共享内存var<workgroup>定义的遍历，且并行运行，可以利用workgroupBarrier()同步工作组中的工作项操作。
