@@ -7,3 +7,9 @@
 1.工作组（工作组id：workgroup_id）：一个工作组由workgroup_size（可指定）个线程（工作项）进行的。同一工作组的所有工作项可以访问共享内存var<workgroup>定义的遍历，且并行运行，可以利用workgroupBarrier()同步工作组中的工作项操作。  
 2.工作项：具体全局唯一ID：global_invocation_id和某个工作组中的局部ID：local_invocation_id。  
 GPU的运行机制是根绝GPU的线程数和workgroup_size来评估需要多少个工作组，但线程不够分配时只能串行执行。
+# GPU实现基数排序
+由于GPU读取数据的本质是二进制数据，所有选择基数时只能选取2的幂次。（CPU串行时基数选择10），本文选择基数为4进行推导，基为：00、01、10、11。注意迭代轮次取决于数据的位数。  
+主要核心思路分两步：  
+1.偏移量确定索引index：
+
+2.kogge-stone求前缀和：
